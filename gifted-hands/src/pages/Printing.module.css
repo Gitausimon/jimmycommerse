@@ -1,0 +1,254 @@
+.printContainer {
+  padding: 4rem 0;
+  background-color: var(--mist);
+  min-height: calc(100vh - 4rem - 300px);
+}
+
+.wizardWrapper {
+  max-width: 800px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 0;
+  overflow: hidden;
+}
+
+.header {
+  padding: 2.5rem 2.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: var(--slate);
+  margin-bottom: 2rem;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.progressNode {
+  width: 2rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--line);
+  transition: var(--transition);
+}
+
+.activeNode {
+  background-color: var(--signal-blue);
+}
+
+.wizardContent {
+  padding: 3rem 2.5rem;
+}
+
+.stepPane {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stepPane h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.gridCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .gridCards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.selectCard {
+  background-color: var(--mist);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.selectCard:hover {
+  background-color: var(--white);
+  border-color: var(--line);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.selectCard.selected {
+  background-color: var(--white);
+  border-color: var(--signal-blue);
+  box-shadow: 0 0 0 1px var(--signal-blue);
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconBlue {
+  color: var(--signal-blue);
+}
+
+.cardLabel {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.cardSub {
+  font-size: 0.75rem;
+  color: var(--slate);
+  line-height: 1.4;
+}
+
+.stepActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.specSection {
+  margin-bottom: 2rem;
+}
+
+.specSection label {
+  display: block;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.pillGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pill {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  background: var(--mist);
+  border: 1px solid var(--line);
+  color: var(--slate);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.pill:hover {
+  border-color: var(--slate);
+}
+
+.selectedPill {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+.customQty {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.customQtyLabel {
+  color: var(--slate);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.customQty input {
+  width: 100px;
+  padding: 0.5rem 0.75rem;
+}
+
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.formGroup label {
+  display: block;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--signal-blue);
+  box-shadow: 0 0 0 2px rgba(0, 155, 250, 0.2);
+}
+
+.radioGroup {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: normal;
+  color: var(--slate);
+}
+
+.successPane {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.successIcon {
+  color: #10B981; /* Green success */
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.successPane h2 {
+  margin-bottom: 1rem;
+}
+
+.successPane p {
+  color: var(--slate);
+  font-size: 1.125rem;
+}
