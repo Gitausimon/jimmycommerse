@@ -84,13 +84,18 @@ export default function Printing() {
               <h2>1. What do you need?</h2>
               {loadingServices ? (
                 <p>Loading available services...</p>
+              ) : services.length === 0 ? (
+                <div style={{ textAlign: 'center', padding: '3rem', backgroundColor: 'var(--mist)', borderRadius: 'var(--radius-md)' }}>
+                  <p style={{ fontWeight: 600, color: 'var(--navy)', marginBottom: '0.5rem' }}>No print services available</p>
+                  <p style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>Please ask an administrator to add services from the dashboard.</p>
+                </div>
               ) : (
                 <div className={styles.gridCards}>
                   {services.map(svc => {
                     const IconComp = Icons[svc.iconName] || Icons.HelpCircle;
                     return (
                       <button 
-                        key={svc.id} 
+                        key={svc.docId} 
                         className={`${styles.selectCard} ${order.service === svc.id ? styles.selected : ''}`}
                         onClick={() => {
                           updateOrder('service', svc.id);

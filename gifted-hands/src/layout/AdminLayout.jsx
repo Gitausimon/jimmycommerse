@@ -1,9 +1,23 @@
-import { Outlet, NavLink, Link } from 'react-router-dom';
+import { Outlet, NavLink, Link, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, Package, ShoppingCart, LogOut } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import styles from './AdminLayout.module.css';
 import logo from '../assets/logo.svg';
 
 export default function AdminLayout() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+      await logout();
+      navigate('/');
+    } catch (error) {
+      console.error('Failed to log out:', error);
+    }
+  };
+
   return (
     <div className={styles.adminGrid}>
       <aside className={styles.sidebar}>
@@ -46,10 +60,10 @@ export default function AdminLayout() {
 
       <main className={styles.mainContent}>
         <header className={styles.topbar}>
-          <Link to="/" className={styles.logoutBtn}>
+          <button onClick={handleLogout} className={styles.logoutBtn} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
             <LogOut size={18} />
             Exit Admin
-          </Link>
+          </button>
         </header>
         <div className={styles.contentArea}>
           <Outlet />
